@@ -16,7 +16,7 @@ render(){
             <h1> { this.props.firstName }, { this.props.lastName }</h1>
             <p>Age {this.state.age}</p>
             <p>Hair Color: {this.props.hair}</p>
-            <button onClick={ this. increase }>Birthday of { this.props.lastName } { this.props.firstName }  </button>
+            <button onClick={ this.increase }>Birthday of { this.props.lastName } { this.props.firstName }  </button>
             <hr></hr>
         </div>
     )
