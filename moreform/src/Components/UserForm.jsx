@@ -29,7 +29,7 @@ import React, {useState} from 'react';
     };
 // length validation
     const checkLength=(e)=>{
-     if (e.target.value.length <2)
+     if (e.target.value.length <2&&e.target.value.length!==0)
      seTitleError ("It must be more than two charecter");
      else {
         seTitleError("");
@@ -37,7 +37,7 @@ import React, {useState} from 'react';
     }
     // email length
     const checkemailLength=(e)=>{
-        if(e.target.value.length<8)
+        if(e.target.value.length<8&& e.target.value.length!==0)
         seTEmaillength ("The Email Length must be mor than 8");
         else{
             seTEmaillength("");
