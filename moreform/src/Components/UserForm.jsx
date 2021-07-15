@@ -48,7 +48,8 @@ import React, {useState} from 'react';
 const passValidation=(e)=>{
 
     //  if(e.target.value.pasw !==e.target.value.pasc)
-     if (pasc!=pasw)
+    //  if (pasc!=pasw)
+    if(e.target.value !==pasw)
     setPassword("password and Confirmation did not match");
     else{ 
         setPassword("");
