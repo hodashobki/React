@@ -1,102 +1,101 @@
-import React, {useState} from 'react';
+import { useState } from "react";
+import React from "react";
+ const UserForms=(props)=>{
+const [fname,setFname]=useState("");
+const [lname,setLname]=useState("");
+const [email,setEmail]=useState("");
+const [pasw,setPasw]=useState("");
+const [pasc,setPasc]=useState("");
+const[fnameval,setFnameVal]=useState("");
+const[lnameval,setlnameVal]=useState(""); 
+const [emailval,setEmailVal]=useState("");
+const [paswval,setpaswVal]=useState("");
+const [pascval,setpascVal]=useState("");
+const [pasconf,setpasConf]=useState("");
 
- const UserForm=(props)=>{
-
-    const [fname,setFname]=useState("");
-    const [lname,setLname]=useState("");
-    const[email,setEmail]=useState("");
-    const[pasw,setPasw]=useState("");
-    const[pasc,setPasc]=useState("");
-    const[isSubmited, setisSubmited]=useState(false);
-    const [lenghtError,seTitleError]=useState("");
-    const [emaillength,seTEmaillength]=useState("");
-    const[passww,setPassword]=useState("");
-
-    const createUser=(e)=>{
-        e.preventDefault();
-        const newUser={fname,lname,email,pasw,pasc};
-        setFname("");
-        setLname("");
-        setEmail("");
-        setPasw("");
-        setPasc("");
-    };
-
-    const message=()=>{
-      return isSubmited ?
-      "Thank you for submiting":
-      "Please Submit the form";
-    };
-// length validation
-    const checkLength=(e)=>{
-     if (e.target.value.length <2&&e.target.value.length!==0)
-     seTitleError ("It must be more than two charecter");
-     else {
-        seTitleError("");
-     } 
-    }
-    // email length
-    const checkemailLength=(e)=>{
-        if(e.target.value.length<8&& e.target.value.length!==0)
-        seTEmaillength ("The Email Length must be mor than 8");
-        else{
-            seTEmaillength("");
-        }
-    }
-   
-// Create validations for password and confirm password
-const passValidation=(e)=>{
-
-    //  if(e.target.value.pasw !==e.target.value.pasc)
-    //  if (pasc!=pasw)
-    if(e.target.value !==pasw)
-    setPassword("password and Confirmation did not match");
-    else{ 
-        setPassword("");
+const createUser=(e)=>{
+    e.preventDefault();
+    const newUser = { fname,lname, email, pasw,pasc };
+};
+const fnameValidation=(e)=>{
+    if(e.target.value <2 && e.target.value!=0)
+    setFnameVal("first name must be more than 2 character")
+    else {
+        setFnameVal("");
     }
 }
 
-     return (
-         <div>
-              <h3>{message()}</h3>
-             <form onSubmit={createUser}>
-                 <div>
-                    
-                     <p >{lenghtError}</p>
-                     <label>
-                         First Name:
-                         <input type="text"  name="fname" onChange={(e)=>{setFname(e.target.value); checkLength(e)}} value={fname}/>
-                     </label>
-                 </div><br/>
-                 <div>
-                 <p >{lenghtError}</p>
-                     <label>Last Name :
-                         <input type="text" name="lname"  onChange={(e)=>{setLname(e.target.value); checkLength(e)}} value={lname}/>
-                     </label>
-                 </div><br/>
-                 <div>
-                 <p >{lenghtError}</p>
-                     <label>Email :
-                         <input type="email" name="email"  onChange={(e)=>{setEmail(e.target.value); checkLength(e)}} value={email}/>
-                     </label>
-                 </div><br/>
-                 <div>
-                 <p >{emaillength}</p>
-                     <label>Password :
-                         <input type="password" name="pasw" onChange={(e)=>{setPasw(e.target.value);checkemailLength(e)}} value={pasw}/>
-                     </label>
-                 </div><br/>
-                 <div>
-                      <p >{passww}</p>
-                      <p >{emaillength}</p>
-                     <label> Confirm Password :
-                         <input type="password" name="pasc"  onChange={(e)=>{setPasc(e.target.value);passValidation(e);;checkemailLength(e)}} value={pasc}/>
-                     </label>
-                 </div><br/>
-                 <input type="submit" value="Submit" />
+const lnameValidation=(e)=>{
+    if(e.target.value<2 && e.target.value!=0)
+    setlnameVal("last name muat be more than 2 characters")
+    else {
+        setlnameVal("");
+    }
+}
+const emailValidation=(e)=>
+{if(e.target.value<2 && e.target.value!=0)
+    setEmailVal("Email must be at least 2 characters")
+    else{
+        setEmailVal("");
+    }
+    
+}
+const paswValidation=(e)=>{
+    if (e.target.value<8 && e.target.value!=0)
+    setpaswVal("Password must be 8 characters at least")
+    else{
+        setpaswVal("");
+    }
+}
+const pasconValidation=(e)=>{
+    if(e.target.value<8 &&e.target.value!=0)
+    setpascVal("Password Confirmation must be 8 characters at least")
+    else{
+        setpascVal("");
+    }
+}
+const checkpasswordValidation=(e)=>{
+    if(e.target.value!=pasw)
+    setpasConf("password and password confirmation not matched")
+    else{
+        setpasConf("");
+    }
 
-             </form>
+}
+
+     return(
+         <div>
+              <form onSubmit={createUser}>
+                <p>
+                    <p>{fnameval}</p>
+            <label> First Name:
+                <input type="text" name="fname" onChange={(e)=>{setFname(e.target.value);fnameValidation(e)}} value={fname}></input>
+            </label>
+            </p>
+            <p><p>{lnameval}</p>
+            <label>Last Name:
+                <input type="text" name="lname" onChange={(e)=>{setLname(e.target.value);lnameValidation(e)}}></input>
+            </label></p>
+            <p>
+                <p>{emailval}</p>
+            <label>Email
+                <input type="email" name="email" onChange={(e)=>{setEmail(e.target.value);emailValidation(e)}}></input>
+            </label></p>
+            <p>
+                <p>{paswval}</p>
+            <label>Password: 
+                <input type="password" name="pasw" onChange={(e)=>{setPasw(e.target.value);paswValidation(e)}}></input>
+            </label></p>
+            <p>
+                <p>{pasconf}</p>
+                <p>{pascval}</p>
+            <label>Password Confirmation:
+                <input type="password" name="pasc" onChange={(e)=>{setPasc(e.target.value);pasconValidation(e);checkpasswordValidation(e)}}></input>
+            </label></p>
+            <input type="submit" value="Create User" />
+            </form>
+          
          </div>
      );
  }
- export default UserForm;
+ export default UserForms;

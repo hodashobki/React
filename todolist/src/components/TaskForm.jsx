@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React,{ useState } from "react";
+import './style.css';
  const TaskForm=(props)=>{
      const tasks=["Python Black belt","java Black belt","Mern Black belt"];
      const[task,setTask]=useState("");
@@ -20,7 +21,7 @@ setNewtask(filternewtask);
             text:task,
             complete:false,
         }
-        setNewtask(...newtask,todoItem);
+       setNewtask(...newtask,todoItem);
         setTask("");
        
     }
@@ -39,13 +40,14 @@ setNewtask(filternewtask);
          <div>
           <form onSubmit={(e)=>{handelsubmit(e)}}>
               <input type="text" onChange={(e)=>{setTask(e.target.value)}} value={task} />
-              <select value={task} onChange={(e)=>setTask(e.target.value)}>
+              {/* <select value={task} onChange={(e)=>setTask(e.target.value)}>
                   {tasks.map((task,i)=>
                   <option key={i} value={task}>{task}</option>
                   )}
-              </select>
+              </select> */}
               <button>Add</button>
           </form>
+          
           <>
              {newtask.map((task,j)=>{
                  const todoClass=[];
