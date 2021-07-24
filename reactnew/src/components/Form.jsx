@@ -38,9 +38,6 @@ setDone([...done,doing[o]]);
 console.log(done);
 }
 
-// const [fivminute,setFiveminute]=useState(0);
-//     const [pomodoro,setPomodoro]=useState(0);
-//     const [rule,setRule]=useState(0);
 
 const handlefive=(e)=>{
     setFiveminute(fivminute+1);
