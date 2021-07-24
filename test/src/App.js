@@ -6,6 +6,7 @@ import { Userform } from './components/PersonCard';
 import Userforms from './components/UserForms';
 import MessageDisplay from './components/MessageDisplay';
 import MessageForm from './components/MessageForm';
+import UserFormm from './components/UserFormm';
 import './App.css';
 import Example from './components/Example';
 
@@ -25,7 +26,8 @@ function App() {
      {/* <MessageForm onNewMessage={ youveGotMail }/>
      <MessageDisplay message={currentMsg }/>
       */}
-      <Example/>
+      {/* <Example/> */}
+      <UserFormm></UserFormm>
     </div>
     
   );
