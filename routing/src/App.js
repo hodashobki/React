@@ -12,7 +12,7 @@ function App() {
      <Navbar/>
      <Router>
        <Home path="/home"/>
-       {/* <Hello path="/:word"/> */}
+       <Hello path="/:word"/>
        <Number path="/number/:x"/>
        <Color path="/:word/:font/:back"/>
        <UsingMethod path="/:value"/>
