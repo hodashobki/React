@@ -27,22 +27,15 @@ const chickif=()=>{
     }, [id]); 
     return (
         <div>
-           <p>Star Wars</p> 
-           {item.name}
-           {/* var beverage = (age >= 21) ? "Beer" : "Juice"; */} 
-             {/* {selected}==="pepole"? 
-            <div>
-               <p>{item.hair_color}</p>
-           </div>:
-           <div>
-               <p>{item.rotation_period}</p>
-           </div> */}
+          Name: {item.name}
+          
             {chickif} <div>
                <p>Hair Color: {item.hair_color}</p>
                <p>Height: {item.height}</p>
                <p>Birthday year : {item.birth_year}</p>
                <p> Eye Color : {item.eye_color}</p>
-           </div> 
+           </div>
+           <hr></hr> 
            {chickifplanet}
            <div>
                <p> {item.rotation_period}</p>
